@@ -1,0 +1,9 @@
+<div
+  class="m-5 border overflow-y-scroll bg-slate-100 shadow-md w-96 h-40 sticky bottom-96 z-10"
+  [ngClass]="{ 'h-6': !show }"
+>
+  <button (click)="toggleShow()" class="bg-red-500 text-white px-2">
+    {{ show ? "_" : "&#9744;" }}
+  </button>
+  <p class="italic" *ngFor="let msg of messages">{{ msg }}</p>
+</div>

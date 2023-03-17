@@ -1,0 +1,38 @@
+<div
+  class="shadow-lg rounded-md p-10 border m-10 flex flex-col justify-center items-center"
+  [ngClass]="{ 'bg-green-100': pokemon?.captured }"
+>
+  <img class="mx-auto h-32 w-32 drop-shadow-2xl" [src]="pokemon?.image" />
+  <h3 class="m-5 text-sm text-center text-blue-500">{{ pokemon?.name }}</h3>
+  <h3 class="m-5 text-sm text-center text-blue-500">
+    {{ pokemon?.lastSeen | date : "short" }}
+  </h3>
+  <div class="flex flex-row justify-between mt-3 mb-3">
+    <p class="font-bold text-red-500 text-center mr-3">
+      Defense: {{ pokemon?.defense }}
+    </p>
+    <p class="font-bold text-center text-yellow-500">
+      Attack: {{ pokemon?.attack }}
+    </p>
+  </div>
+  <div class="flex flex-row flex-wrap justify-center">
+    <img
+      class="h-10 w-10 hover:shadow-lg hover:scale-110 transition-all hover:shadow-lime-300 rounded-full"
+      *ngFor="let type of pokemon?.types"
+      [src]="type.image"
+      [title]="type.name"
+    />
+  </div>
+  <p class="font-bold text-center text-pink-500">
+    Has evolution : {{ pokemon?.hasEvolution?.toString() | uppercase }}
+  </p>
+  <div class="w-1/2 text-center mt-5">
+    Description: {{ pokemon?.description }}
+  </div>
+  <button
+    routerLink="/edit/{{ pokemon?.id }}"
+    class="bg-yellow-500 text-white hover:bg-yellow-400 transition-all px-3 py-2 rounded-md mt-5"
+  >
+    Update
+  </button>
+</div>

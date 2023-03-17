@@ -1,0 +1,31 @@
+<nav class="w-screen p-4 bg-slate-200 mb-6">
+  <ul class="flex flex-row justify-evenly w-96">
+    <li>
+      <a
+        class="hover:text-gray-500 transition-all"
+        routerLink="/"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="text-gray-500 underline underline-offset-4"
+        >Listing</a
+      >
+    </li>
+    <li>
+      <a
+        class="hover:text-gray-500 transition-all"
+        routerLink="/create"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="text-gray-500 underline underline-offset-4"
+        >Create</a
+      >
+    </li>
+    <li>
+      <a
+        class="hover:text-gray-500"
+        routerLink="/about"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="text-gray-500 underline underline-offset-4"
+        >About</a
+      >
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,79 @@
+<div>
+  <p class="text-lg font-bold mb-5">Create a new Pokemon !</p>
+  <form
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+    class="flex flex-col w-96 p-5 border-2 rounded-md shadow-xl"
+  >
+    <label class="font-semibold" for="name">Name: </label>
+    <input
+      class="border-2 focus:transition border-gray-200 mt-1 mb-3 outline-sky-600 rounded-md px-3 py-1"
+      type="text"
+      formControlName="name"
+      [value]="form.value.name"
+      id="name"
+    />
+    <p
+      *ngIf="inputIsInvalid('name')"
+      class="text-red-600 px-3 py-2 rounded-md bg-red-200"
+    >
+      Please enter a valid name
+    </p>
+    <label class="font-semibold" for="image">Image URL: </label>
+    <input
+      class="border-2 focus:transition border-gray-200 mt-1 mb-3 outline-sky-600 rounded-md px-3 py-1"
+      type="text"
+      formControlName="image"
+      id="image"
+    />
+    <label class="font-semibold" for="attack">Attack: </label>
+    <input
+      type="number"
+      class="border-2 focus:transition border-gray-200 mt-1 mb-3 outline-sky-600 rounded-md px-3 py-1"
+      formControlName="attack"
+      id="attack"
+    />
+    <label class="font-semibold" for="defense">Defense: </label>
+    <input
+      type="number"
+      class="border-2 focus:transition border-gray-200 mt-1 mb-3 outline-sky-600 rounded-md px-3 py-1"
+      formControlName="defense"
+      id="defense"
+    />
+    <label class="font-semibold" for="description">Description: </label>
+    <textarea
+      class="border-2 focus:transition border-gray-200 mt-1 mb-3 outline-sky-600 rounded-md px-3 py-1"
+      name="description"
+      id="description"
+      formControlName="description"
+    ></textarea>
+    <div class="flex border-gray-200 flex-row items-center mb-3">
+      <input
+        class="inline-block m-0 mr-3 focus:transition rounded-sm cursor-pointer"
+        type="checkbox"
+        id="hasEvolution"
+        value="true"
+        formControlName="hasEvolution"
+        checked
+      />
+      <label class="font-semibold" for="hasEvolution">Has Evolution</label>
+    </div>
+
+    <button
+      class="rounded-md bg-blue-600 hover:bg-blue-500 text-white px-3 py-2 transition-all"
+      type="submit"
+    >
+      {{ isLoading ? "" : "Save" }}
+      <div
+        *ngIf="isLoading"
+        class="inline-block h-5 w-5 animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+        role="status"
+      >
+        <span
+          class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+          >Loading...</span
+        >
+      </div>
+    </button>
+  </form>
+</div>
